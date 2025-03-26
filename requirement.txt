@@ -1,0 +1,24 @@
+# Create the project directory and navigate into it
+mkdir -p ~/sems-aviation-security
+cd ~/sems-aviation-security
+
+# Create root files
+touch .gitignore README.md main.py requirements.txt
+
+# Create assets directories
+mkdir -p assets/images assets/icons
+
+# Create database files
+mkdir database
+touch database/db_connector.py database/models.py
+
+# Create modules
+mkdir modules
+touch modules/auth.py modules/personnel.py modules/reports.py modules/threats.py
+
+# Create screens
+mkdir screens
+touch screens/dashboard.kv screens/login.kv screens/personnel.kv screens/threats.kv
+
+# Verify structure
+tree
