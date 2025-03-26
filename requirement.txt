@@ -1,24 +1,19 @@
-# Create the project directory and navigate into it
-mkdir -p ~/sems-aviation-security
-cd ~/sems-aviation-security
+# Core Requirements
+kivy==2.2.1
+kivymd==1.1.1
 
-# Create root files
-touch .gitignore README.md main.py requirements.txt
+# Database
+sqlalchemy==2.0.23
+sqlite3==3.42.0  # (Usually comes with Python)
 
-# Create assets directories
-mkdir -p assets/images assets/icons
+# Security
+bcrypt==4.0.1
+pyjwt==2.8.0
 
-# Create database files
-mkdir database
-touch database/db_connector.py database/models.py
+# Reporting
+reportlab==4.0.4  # For PDF generation
+openpyxl==3.1.2  # For Excel reports
 
-# Create modules
-mkdir modules
-touch modules/auth.py modules/personnel.py modules/reports.py modules/threats.py
-
-# Create screens
-mkdir screens
-touch screens/dashboard.kv screens/login.kv screens/personnel.kv screens/threats.kv
-
-# Verify structure
-tree
+# Utilities
+python-dotenv==1.0.0
+pyyaml==6.0.1
