@@ -1,0 +1,113 @@
+# screens/dashboard.kv
+<DashboardScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        padding: 20
+        
+        # Header
+        BoxLayout:
+            size_hint_y: None
+            height: 60
+            canvas.before:
+                Color:
+                    rgba: 0.1, 0.5, 0.8, 1  # Blue header
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            
+            Label:
+                text: 'Aviation Security Dashboard'
+                font_size: 24
+                bold: True
+                color: 1, 1, 1, 1
+                halign: 'left'
+                valign: 'middle'
+                padding_x: 20
+            
+            Label:
+                text: 'Welcome, {}'.format(root.current_user)
+                font_size: 16
+                color: 1, 1, 1, 1
+                halign: 'right'
+                valign: 'middle'
+                padding_x: 20
+        
+        # Main Content Area
+        GridLayout:
+            cols: 2
+            spacing: 20
+            padding: 10
+            
+            # Threat Management Card
+            CardButton:
+                text: 'Threat Management'
+                icon: 'assets/icons/threat.png'
+                on_release: root.manager.current = 'threats'
+            
+            # Personnel Management Card
+            CardButton:
+                text: 'Personnel'
+                icon: 'assets/icons/personnel.png'
+                on_release: root.manager.current = 'personnel'
+            
+            # Reports Card
+            CardButton:
+                text: 'Reports'
+                icon: 'assets/icons/report.png'
+                on_release: root.manager.current = 'reports'
+            
+            # System Settings Card
+            CardButton:
+                text: 'Settings'
+                icon: 'assets/icons/settings.png'
+                on_release: root.manager.current = 'settings'
+        
+        # Footer
+        BoxLayout:
+            size_hint_y: None
+            height: 40
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.8, 0.8, 1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            
+            Label:
+                text: 'Status: Connected'
+                color: 0, 0, 0, 1
+                font_size: 14
+            
+            Button:
+                text: 'Logout'
+                size_hint_x: 0.2
+                background_color: 0.9, 0.1, 0.1, 1
+                on_release: root.logout()
+
+<CardButton@Button>:
+    background_color: 0.9, 0.9, 0.9, 1
+    background_normal: ''
+    font_size: 18
+    bold: True
+    color: 0, 0, 0, 1
+    padding: 20
+    size_hint_y: None
+    height: 120
+    
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        
+        Image:
+            source: root.icon
+            size_hint: (0.5, 0.5)
+            pos_hint: {'center_x': 0.5}
+        
+        Label:
+            text: root.text
+            font_size: root.font_size
+            bold: root.bold
+            color: root.color
+            size_hint_y: None
+            height: 30
